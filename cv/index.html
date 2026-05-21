@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Isbell – Cybersecurity GTM Leader</title>
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #080f1e;
+      color: #c9d6e8;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ─── Color Tokens ─────────────────────────────────────────── */
+    :root {
+      --navy-deep:   #080f1e;
+      --navy-mid:    #0d1b35;
+      --navy-card:   #102040;
+      --navy-border: #1a3560;
+      --blue-bright: #2563eb;
+      --blue-glow:   #3b82f6;
+      --blue-accent: #60a5fa;
+      --blue-pale:   #93c5fd;
+      --teal:        #06b6d4;
+      --text-main:   #c9d6e8;
+      --text-muted:  #7a94b8;
+      --text-bright: #e8f0fd;
+      --gold:        #f59e0b;
+    }
+
+    /* ─── Layout ───────────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ─── Toggle Bar ───────────────────────────────────────────── */
+    .toggle-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-border);
+      border-radius: 40px;
+      padding: 4px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .toggle-btn {
+      padding: .55rem 1.6rem;
+      border-radius: 36px;
+      border: none;
+      cursor: pointer;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      transition: background .25s, color .25s, box-shadow .25s;
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    .toggle-btn.active {
+      background: var(--blue-bright);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(37,99,235,.55);
+    }
+
+    /* ─── Header ────────────────────────────────────────────────── */
+    .cv-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .avatar-ring {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-bright), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 1.1rem;
+      box-shadow: 0 0 28px rgba(37,99,235,.45);
+    }
+
+    .cv-header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -.5px;
+    }
+
+    .cv-header .tagline {
+      font-size: 1.1rem;
+      color: var(--blue-accent);
+      font-weight: 500;
+      margin: .4rem 0 1rem;
+      min-height: 1.7rem;
+      transition: opacity .3s;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem 1.5rem;
+      font-size: .88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-row a {
+      color: var(--blue-pale);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      transition: color .2s;
+    }
+    .contact-row a:hover { color: #fff; }
+
+    /* ─── Sections ──────────────────────────────────────────────── */
+    section { margin-bottom: 2.4rem; }
+
+    .section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue-glow);
+      margin-bottom: .8rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--navy-border);
+    }
+
+    /* Profile summary */
+    .summary-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-left: 3px solid var(--blue-bright);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      font-size: .97rem;
+      color: var(--text-main);
+      line-height: 1.75;
+      transition: opacity .3s;
+    }
+
+    /* Metrics bar */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .9rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .metric-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      text-align: center;
+      transition: box-shadow .25s;
+    }
+    .metric-card:hover { box-shadow: 0 0 18px rgba(59,130,246,.25); }
+
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      display: block;
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: .3rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .skill-tag {
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-border);
+      color: var(--blue-pale);
+      border-radius: 20px;
+      padding: .35rem .95rem;
+      font-size: .82rem;
+      font-weight: 500;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .skill-tag:hover {
+      background: var(--blue-bright);
+      border-color: var(--blue-bright);
+      color: #fff;
+    }
+    .skill-tag.highlight {
+      background: rgba(37,99,235,.18);
+      border-color: var(--blue-glow);
+      color: var(--blue-pale);
+    }
+
+    /* Experience */
+    .exp-item {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--blue-bright), var(--teal));
+      border-radius: 3px 0 0 3px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: .55rem;
+    }
+
+    .exp-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-bright);
+    }
+    .exp-company {
+      color: var(--blue-accent);
+      font-weight: 600;
+      font-size: .93rem;
+    }
+    .exp-date {
+      font-size: .8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-border);
+      border-radius: 12px;
+      padding: .2rem .75rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: .55rem;
+    }
+    .exp-bullets li {
+      padding-left: 1.3rem;
+      position: relative;
+      font-size: .91rem;
+      color: var(--text-main);
+      margin-bottom: .35rem;
+    }
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--blue-glow);
+    }
+
+    /* Certs */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: .8rem;
+    }
+    .cert-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      padding: .9rem 1.1rem;
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+    }
+    .cert-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .cert-name {
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--text-bright);
+    }
+    .cert-body {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: .15rem;
+    }
+
+    /* Sectors */
+    .sectors-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+    .sector-badge {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      padding: .45rem .9rem;
+      font-size: .83rem;
+      color: var(--text-main);
+    }
+    .sector-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ─── View-specific visibility ─────────────────────────────── */
+    [data-view] { display: none; }
+    body.view-sales [data-view="sales"] { display: block; }
+    body.view-ciso  [data-view="ciso"]  { display: block; }
+    body.view-sales [data-view="both"]  { display: block; }
+    body.view-ciso  [data-view="both"]  { display: block; }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    .cv-footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--navy-border);
+    }
+    .cv-footer a { color: var(--blue-pale); text-decoration: none; }
+
+    /* ─── Print ──────────────────────────────────────────────────── */
+    @media print {
+      body { background: #fff; color: #111; }
+      .toggle-bar { display: none; }
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .cv-header h1 { font-size: 1.6rem; }
+      .toggle-btn { padding: .5rem 1rem; font-size: .82rem; }
+    }
+  </style>
+</head>
+<body class="view-sales">
+
+<div class="page-wrap">
+
+  <!-- ── Toggle ──────────────────────────────────────────────────── -->
+  <div class="toggle-bar" role="group" aria-label="CV view selector">
+    <button class="toggle-btn active" id="btn-sales" onclick="setView('sales')">
+      💼 Sales Leadership
+    </button>
+    <button class="toggle-btn" id="btn-ciso" onclick="setView('ciso')">
+      🛡️ Field CISO
+    </button>
+  </div>
+
+  <!-- ── Header ──────────────────────────────────────────────────── -->
+  <header class="cv-header">
+    <div class="avatar-ring">MI</div>
+    <h1>Matthew Isbell</h1>
+    <p class="tagline" id="tagline">Security Sales Lead &amp; GTM Specialist</p>
+    <div class="contact-row">
+      <a href="mailto:matthewisbell@blucreative.co.uk">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        matthewisbell@blucreative.co.uk
+      </a>
+      <a href="https://linkedin.com/in/matthewisbell" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/matthewisbell
+      </a>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        United Kingdom · EMEA Coverage
+      </span>
+    </div>
+  </header>
+
+  <!-- ── Summary ─────────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Profile</div>
+
+    <div class="summary-card" data-view="sales">
+      Cybersecurity commercial leader with a consistent record of <strong>100% quota attainment</strong> across enterprise security deals ranging from £100K to multi-million pound TCV. Skilled at building trusted relationships with CISOs and security decision-makers across EMEA, translating complex security challenges into compelling business value. Proven success closing strategic deals with UK Government, Magic Circle legal firms, and enterprise ISV customers. Adept at full-cycle enterprise sales—from initial discovery through board-level negotiation and contract close.
+    </div>
+
+    <div class="summary-card" data-view="ciso">
+      Strategic cybersecurity advisor with deep expertise bridging executive leadership and technical security disciplines. Brings a commercially grounded perspective to CISO-level engagements, having cultivated trusted relationships with security leaders across EMEA. Experienced advising organisations in high-stakes verticals—including UK Government, legal, and financial sectors—on security posture, risk governance, vendor strategy, and programme roadmaps. Able to operate as an embedded Field CISO or trusted strategic partner, translating risk into board-level language and driving security-as-enabler narratives.
+    </div>
+  </section>
+
+  <!-- ── Key Metrics ──────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Impact at a Glance</div>
+    <div class="metrics-grid" data-view="both">
+      <div class="metric-card">
+        <span class="metric-value">100%</span>
+        <span class="metric-label">Quota Attainment (Repeated)</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">£M+</span>
+        <span class="metric-label">Max Deal TCV</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">EMEA</span>
+        <span class="metric-label">CISO Network Coverage</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">Gov · Legal · ISV</span>
+        <span class="metric-label">Key Verticals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ──────────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Core Competencies</div>
+
+    <div class="skills-grid" data-view="sales">
+      <span class="skill-tag highlight">Enterprise Security Sales</span>
+      <span class="skill-tag highlight">Quota Attainment</span>
+      <span class="skill-tag highlight">CISO Relationship Management</span>
+      <span class="skill-tag highlight">Deal Structuring & Negotiation</span>
+      <span class="skill-tag">Pipeline Generation & Management</span>
+      <span class="skill-tag">Channel & Partner Ecosystems</span>
+      <span class="skill-tag">RFP / Tender Response (Gov)</span>
+      <span class="skill-tag">Executive Stakeholder Engagement</span>
+      <span class="skill-tag">Business Value Selling</span>
+      <span class="skill-tag">Territory Planning</span>
+      <span class="skill-tag">Competitive Displacement</span>
+      <span class="skill-tag">EMEA Go-To-Market</span>
+    </div>
+
+    <div class="skills-grid" data-view="ciso">
+      <span class="skill-tag highlight">Security Strategy & Roadmapping</span>
+      <span class="skill-tag highlight">Risk & Governance Frameworks</span>
+      <span class="skill-tag highlight">CISO Advisory & Mentoring</span>
+      <span class="skill-tag highlight">Board-Level Risk Communication</span>
+      <span class="skill-tag">Zero Trust Architecture</span>
+      <span class="skill-tag">Cloud Security (Multi-Cloud)</span>
+      <span class="skill-tag">Identity & Access Management</span>
+      <span class="skill-tag">Threat Intelligence</span>
+      <span class="skill-tag">Incident Response Planning</span>
+      <span class="skill-tag">Security Vendor Evaluation</span>
+      <span class="skill-tag">Regulatory Compliance (GDPR, NIS2, ISO 27001)</span>
+      <span class="skill-tag">Security Awareness & Culture</span>
+    </div>
+  </section>
+
+  <!-- ── Experience ────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Experience</div>
+
+    <!-- SALES VIEW EXPERIENCE -->
+    <div data-view="sales">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Cybersecurity Sales Specialist</div>
+            <div class="exp-company">Blucreative / Independent</div>
+          </div>
+          <span class="exp-date">2024 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Driving enterprise cybersecurity sales across EMEA, with consistent 100% quota attainment on deals from £100K to multi-million TCV.</li>
+          <li>Building and maintaining trusted CISO relationships across financial services, legal, government, and ISV sectors.</li>
+          <li>Positioning security solutions as business enablers through executive stakeholder engagement and board-level communication.</li>
+          <li>Managing complex multi-stakeholder sales cycles from initial discovery through contract signature.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Senior Security Account Executive</div>
+            <div class="exp-company"><!-- Update from LinkedIn --></div>
+          </div>
+          <span class="exp-date"><!-- Dates --></span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Achieved repeated 100% quota attainment across a portfolio of enterprise security accounts in the UK and EMEA.</li>
+          <li>Closed strategic deals with UK Government departments, Magic Circle legal firms, and top-tier recruitment organisations.</li>
+          <li>Developed channel partnerships and ISV relationships to extend market reach across EMEA.</li>
+          <li>Led competitive displacement campaigns, displacing incumbent vendors at major enterprise accounts.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Security Sales Professional</div>
+            <div class="exp-company"><!-- Update from LinkedIn --></div>
+          </div>
+          <span class="exp-date"><!-- Dates --></span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Managed end-to-end enterprise sales cycles for cybersecurity solutions across UK enterprise accounts.</li>
+          <li>Built relationships with CISO and security leadership at target accounts, establishing a trusted advisor position.</li>
+          <li>Coordinated pre-sales, technical, and executive resources to deliver compelling, customer-specific value propositions.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- CISO VIEW EXPERIENCE -->
+    <div data-view="ciso">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Security GTM Leader & Trusted CISO Advisor</div>
+            <div class="exp-company">Blucreative / Independent</div>
+          </div>
+          <span class="exp-date">2024 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Operating as a trusted strategic partner to CISOs and security leaders across EMEA, advising on vendor strategy, security programme roadmaps, and risk prioritisation.</li>
+          <li>Providing board-level security narratives to enable non-technical leadership to make informed risk decisions.</li>
+          <li>Advising on security architecture choices, procurement strategy, and vendor evaluation across cloud, identity, and endpoint domains.</li>
+          <li>Deeply embedded in UK Government, legal, and enterprise ISV security landscapes, providing sector-specific context and advisory.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Field Security Advisor / Pre-Sales CISO</div>
+            <div class="exp-company"><!-- Update from LinkedIn --></div>
+          </div>
+          <span class="exp-date"><!-- Dates --></span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Acted as a Field CISO equivalent, embedding within customer security teams to assess posture, define strategy, and guide roadmap priorities.</li>
+          <li>Facilitated risk workshops and threat modelling sessions with CISO and leadership teams at enterprise accounts.</li>
+          <li>Translated complex regulatory requirements (GDPR, NIS2, ISO 27001) into actionable programme plans aligned to business objectives.</li>
+          <li>Supported CISOs in UK Government and Magic Circle law firms on zero trust, cloud security, and identity modernisation initiatives.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Security Strategy Consultant</div>
+            <div class="exp-company"><!-- Update from LinkedIn --></div>
+          </div>
+          <span class="exp-date"><!-- Dates --></span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Delivered security strategy engagements for enterprise clients across financial services, legal, and recruitment sectors.</li>
+          <li>Advised on security frameworks and controls including ISO 27001, Cyber Essentials Plus, and NIST CSF.</li>
+          <li>Supported executive teams in communicating security posture and investment priorities to boards and regulators.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Sectors ─────────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Key Sectors & Customers</div>
+    <div class="sectors-row" data-view="both">
+      <span class="sector-badge"><span class="dot"></span>UK Government &amp; Public Sector</span>
+      <span class="sector-badge"><span class="dot"></span>Magic Circle Legal Firms</span>
+      <span class="sector-badge"><span class="dot"></span>UK Enterprise Recruitment</span>
+      <span class="sector-badge"><span class="dot"></span>EMEA ISV &amp; Technology Partners</span>
+      <span class="sector-badge"><span class="dot"></span>Financial Services</span>
+      <span class="sector-badge"><span class="dot"></span>Professional Services</span>
+    </div>
+  </section>
+
+  <!-- ── Certifications ─────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Certifications &amp; Education</div>
+    <div class="certs-grid" data-view="both">
+      <div class="cert-card">
+        <span class="cert-icon">🛡️</span>
+        <div>
+          <div class="cert-name">Cybersecurity Certifications</div>
+          <div class="cert-body">See LinkedIn profile for full details</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">🎓</span>
+        <div>
+          <div class="cert-name">Education</div>
+          <div class="cert-body">See LinkedIn profile for full details</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">🏆</span>
+        <div>
+          <div class="cert-name">Vendor Accreditations</div>
+          <div class="cert-body">Security vendor sales &amp; technical accreditations (update from LinkedIn)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="cv-footer">
+    <p>Matthew Isbell · <a href="mailto:matthewisbell@blucreative.co.uk">matthewisbell@blucreative.co.uk</a> · <a href="https://linkedin.com/in/matthewisbell" target="_blank" rel="noopener">LinkedIn</a></p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<script>
+  const TAGLINES = {
+    sales: 'Security Sales Lead &amp; GTM Specialist · EMEA',
+    ciso:  'Field CISO &amp; Trusted Security Advisor · EMEA',
+  };
+
+  function setView(view) {
+    document.body.classList.remove('view-sales', 'view-ciso');
+    document.body.classList.add('view-' + view);
+
+    document.getElementById('btn-sales').classList.toggle('active', view === 'sales');
+    document.getElementById('btn-ciso').classList.toggle('active', view === 'ciso');
+
+    const tagline = document.getElementById('tagline');
+    tagline.style.opacity = '0';
+    setTimeout(() => {
+      tagline.innerHTML = TAGLINES[view];
+      tagline.style.opacity = '1';
+    }, 180);
+  }
+
+  // Persist toggle state across page reloads
+  const saved = sessionStorage.getItem('cv-view');
+  if (saved) setView(saved);
+
+  ['btn-sales', 'btn-ciso'].forEach(id => {
+    document.getElementById(id).addEventListener('click', function () {
+      const view = id === 'btn-sales' ? 'sales' : 'ciso';
+      sessionStorage.setItem('cv-view', view);
+    });
+  });
+</script>
+
+</body>
+</html>
