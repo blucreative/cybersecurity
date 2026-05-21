@@ -28,10 +28,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare site structure
+        run: |
+          mkdir -p _site/cv
+          cp -r cv/. _site/cv/
       - name: Upload CV artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./cv"
+          path: "./_site"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
