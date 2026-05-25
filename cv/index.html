@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matthew Isbell – Cybersecurity GTM Leader</title>
+  <title>Matthew Isbell MSc – Senior Security Technical Specialist</title>
   <style>
     /* ─── Reset & Base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,41 +41,6 @@
       padding: 2rem 1.25rem 4rem;
     }
 
-    /* ─── Toggle Bar ───────────────────────────────────────────── */
-    .toggle-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 2.5rem;
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 40px;
-      padding: 4px;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .toggle-btn {
-      padding: .55rem 1.6rem;
-      border-radius: 36px;
-      border: none;
-      cursor: pointer;
-      font-size: .9rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      transition: background .25s, color .25s, box-shadow .25s;
-      background: transparent;
-      color: var(--text-muted);
-    }
-
-    .toggle-btn.active {
-      background: var(--blue-bright);
-      color: #fff;
-      box-shadow: 0 0 18px rgba(37,99,235,.55);
-    }
-
     /* ─── Header ────────────────────────────────────────────────── */
     .cv-header {
       text-align: center;
@@ -111,8 +76,6 @@
       color: var(--blue-accent);
       font-weight: 500;
       margin: .4rem 0 1rem;
-      min-height: 1.7rem;
-      transition: opacity .3s;
     }
 
     .contact-row {
@@ -133,6 +96,11 @@
       transition: color .2s;
     }
     .contact-row a:hover { color: #fff; }
+    .contact-row span {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
 
     /* ─── Sections ──────────────────────────────────────────────── */
     section { margin-bottom: 2.4rem; }
@@ -165,38 +133,6 @@
       font-size: .97rem;
       color: var(--text-main);
       line-height: 1.75;
-      transition: opacity .3s;
-    }
-
-    /* Metrics bar */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: .9rem;
-      margin-bottom: 2.4rem;
-    }
-
-    .metric-card {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 10px;
-      padding: 1rem 1.1rem;
-      text-align: center;
-      transition: box-shadow .25s;
-    }
-    .metric-card:hover { box-shadow: 0 0 18px rgba(59,130,246,.25); }
-
-    .metric-value {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--blue-accent);
-      display: block;
-      line-height: 1.2;
-    }
-    .metric-label {
-      font-size: .78rem;
-      color: var(--text-muted);
-      margin-top: .3rem;
     }
 
     /* Skills */
@@ -292,34 +228,71 @@
       color: var(--blue-glow);
     }
 
-    /* Certs */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: .8rem;
+    .exp-desc {
+      font-size: .91rem;
+      color: var(--text-main);
+      margin-top: .4rem;
+      line-height: 1.7;
     }
-    .cert-card {
+
+    /* Education */
+    .edu-item {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 10px;
+      padding: .9rem 1.2rem;
+      margin-bottom: .75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .edu-degree {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--text-bright);
+    }
+    .edu-institution {
+      font-size: .85rem;
+      color: var(--blue-accent);
+      margin-top: .15rem;
+    }
+    .edu-date {
+      font-size: .8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      background: var(--navy-mid);
+      border: 1px solid var(--navy-border);
+      border-radius: 12px;
+      padding: .2rem .75rem;
+      height: fit-content;
+    }
+
+    /* Professional Development */
+    .devt-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: .5rem;
+    }
+    .devt-list li {
       background: var(--navy-card);
       border: 1px solid var(--navy-border);
       border-radius: 8px;
-      padding: .9rem 1.1rem;
+      padding: .6rem 1rem;
+      font-size: .87rem;
+      color: var(--text-main);
       display: flex;
       gap: .75rem;
-      align-items: flex-start;
+      align-items: baseline;
     }
-    .cert-icon {
-      font-size: 1.4rem;
+    .devt-year {
+      color: var(--blue-accent);
+      font-weight: 700;
+      font-size: .82rem;
       flex-shrink: 0;
-    }
-    .cert-name {
-      font-weight: 600;
-      font-size: .88rem;
-      color: var(--text-bright);
-    }
-    .cert-body {
-      font-size: .78rem;
-      color: var(--text-muted);
-      margin-top: .15rem;
+      min-width: 2.5rem;
     }
 
     /* Sectors */
@@ -346,12 +319,7 @@
       flex-shrink: 0;
     }
 
-    /* ─── View-specific visibility ─────────────────────────────── */
-    [data-view] { display: none; }
-    body.view-sales [data-view="sales"] { display: block; }
-    body.view-ciso  [data-view="ciso"]  { display: block; }
-    body.view-sales [data-view="both"]  { display: block; }
-    body.view-ciso  [data-view="both"]  { display: block; }
+    /* ─── View-specific visibility removed ─────────────────────── */
 
     /* ─── Footer ─────────────────────────────────────────────────── */
     .cv-footer {
@@ -366,311 +334,199 @@
     /* ─── Print ──────────────────────────────────────────────────── */
     @media print {
       body { background: #fff; color: #111; }
-      .toggle-bar { display: none; }
     }
 
     /* ─── Responsive ─────────────────────────────────────────────── */
     @media (max-width: 600px) {
       .cv-header h1 { font-size: 1.6rem; }
-      .toggle-btn { padding: .5rem 1rem; font-size: .82rem; }
     }
   </style>
 </head>
-<body class="view-sales">
+<body>
 
 <div class="page-wrap">
-
-  <!-- ── Toggle ──────────────────────────────────────────────────── -->
-  <div class="toggle-bar" role="group" aria-label="CV view selector">
-    <button class="toggle-btn active" id="btn-sales" onclick="setView('sales')">
-      💼 Sales Leadership
-    </button>
-    <button class="toggle-btn" id="btn-ciso" onclick="setView('ciso')">
-      🛡️ Field CISO
-    </button>
-  </div>
 
   <!-- ── Header ──────────────────────────────────────────────────── -->
   <header class="cv-header">
     <div class="avatar-ring">MI</div>
-    <h1>Matthew Isbell</h1>
-    <p class="tagline" id="tagline">Security Sales Lead &amp; GTM Specialist</p>
+    <h1>Matthew Isbell <span style="color: var(--blue-accent);">MSc</span></h1>
+    <p class="tagline">Senior Cyber Security Technical Specialist</p>
     <div class="contact-row">
       <a href="mailto:matthewisbell@blucreative.co.uk">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
         matthewisbell@blucreative.co.uk
       </a>
-      <a href="https://linkedin.com/in/matthewisbell" target="_blank" rel="noopener">
+      <a href="https://uk.linkedin.com/in/matthewisbell" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin.com/in/matthewisbell
+        uk.linkedin.com/in/matthewisbell
       </a>
       <span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        United Kingdom · EMEA Coverage
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+        +44 (0) 7929 715814
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Lincoln, UK
       </span>
     </div>
   </header>
 
-  <!-- ── Summary ─────────────────────────────────────────────────── -->
+  <!-- ── Profile ─────────────────────────────────────────────────── -->
   <section>
     <div class="section-label">Profile</div>
-
-    <div class="summary-card" data-view="sales">
-      Cybersecurity commercial leader with a consistent record of <strong>100% quota attainment</strong> across enterprise security deals ranging from £100K to multi-million pound TCV. Skilled at building trusted relationships with CISOs and security decision-makers across EMEA, translating complex security challenges into compelling business value. Proven success closing strategic deals with UK Government, Magic Circle legal firms, and enterprise ISV customers. Adept at full-cycle enterprise sales—from initial discovery through board-level negotiation and contract close.
-    </div>
-
-    <div class="summary-card" data-view="ciso">
-      Strategic cybersecurity advisor with deep expertise bridging executive leadership and technical security disciplines. Brings a commercially grounded perspective to CISO-level engagements, having cultivated trusted relationships with security leaders across EMEA. Experienced advising organisations in high-stakes verticals—including UK Government, legal, and financial sectors—on security posture, risk governance, vendor strategy, and programme roadmaps. Able to operate as an embedded Field CISO or trusted strategic partner, translating risk into board-level language and driving security-as-enabler narratives.
-    </div>
-  </section>
-
-  <!-- ── Key Metrics ──────────────────────────────────────────────── -->
-  <section>
-    <div class="section-label">Impact at a Glance</div>
-    <div class="metrics-grid" data-view="both">
-      <div class="metric-card">
-        <span class="metric-value">100%</span>
-        <span class="metric-label">Quota Attainment (Repeated)</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">£M+</span>
-        <span class="metric-label">Max Deal TCV</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">EMEA</span>
-        <span class="metric-label">CISO Network Coverage</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">Gov · Legal · ISV</span>
-        <span class="metric-label">Key Verticals</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Skills ──────────────────────────────────────────────────── -->
-  <section>
-    <div class="section-label">Core Competencies</div>
-
-    <div class="skills-grid" data-view="sales">
-      <span class="skill-tag highlight">Enterprise Security Sales</span>
-      <span class="skill-tag highlight">Quota Attainment</span>
-      <span class="skill-tag highlight">CISO Relationship Management</span>
-      <span class="skill-tag highlight">Deal Structuring & Negotiation</span>
-      <span class="skill-tag">Pipeline Generation & Management</span>
-      <span class="skill-tag">Channel & Partner Ecosystems</span>
-      <span class="skill-tag">RFP / Tender Response (Gov)</span>
-      <span class="skill-tag">Executive Stakeholder Engagement</span>
-      <span class="skill-tag">Business Value Selling</span>
-      <span class="skill-tag">Territory Planning</span>
-      <span class="skill-tag">Competitive Displacement</span>
-      <span class="skill-tag">EMEA Go-To-Market</span>
-    </div>
-
-    <div class="skills-grid" data-view="ciso">
-      <span class="skill-tag highlight">Security Strategy & Roadmapping</span>
-      <span class="skill-tag highlight">Risk & Governance Frameworks</span>
-      <span class="skill-tag highlight">CISO Advisory & Mentoring</span>
-      <span class="skill-tag highlight">Board-Level Risk Communication</span>
-      <span class="skill-tag">Zero Trust Architecture</span>
-      <span class="skill-tag">Cloud Security (Multi-Cloud)</span>
-      <span class="skill-tag">Identity & Access Management</span>
-      <span class="skill-tag">Threat Intelligence</span>
-      <span class="skill-tag">Incident Response Planning</span>
-      <span class="skill-tag">Security Vendor Evaluation</span>
-      <span class="skill-tag">Regulatory Compliance (GDPR, NIS2, ISO 27001)</span>
-      <span class="skill-tag">Security Awareness & Culture</span>
+    <div class="summary-card">
+      Senior Cyber Security Technical Specialist with over a decade of experience in presales, partner enablement, and
+      secure solution strategy across public sector, commercial, and ISV landscapes. Currently supporting EMEA ISV
+      clients in securing their Software, Data, and Platforms using Microsoft Security tools including Defender,
+      Sentinel, and Purview. Known for developing strong cross-functional collaboration, enabling MSSP growth, and
+      driving adoption of security solutions like XDR and SIEM. Passionate about building inclusive teams, advancing
+      partner ecosystems, and supporting clients in reducing risk and improving cyber resilience across high-growth,
+      regulated environments.
     </div>
   </section>
 
   <!-- ── Experience ────────────────────────────────────────────── -->
   <section>
-    <div class="section-label">Experience</div>
+    <div class="section-label">Work Experience</div>
 
-    <!-- SALES VIEW EXPERIENCE -->
-    <div data-view="sales">
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Cybersecurity Sales Specialist</div>
-            <div class="exp-company">Blucreative / Independent</div>
-          </div>
-          <span class="exp-date">2024 – Present</span>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Senior Cyber Security Technical Specialist – SDP EMEA ISV</div>
+          <div class="exp-company">Microsoft EMEA</div>
         </div>
-        <ul class="exp-bullets">
-          <li>Driving enterprise cybersecurity sales across EMEA, with consistent 100% quota attainment on deals from £100K to multi-million TCV.</li>
-          <li>Building and maintaining trusted CISO relationships across financial services, legal, government, and ISV sectors.</li>
-          <li>Positioning security solutions as business enablers through executive stakeholder engagement and board-level communication.</li>
-          <li>Managing complex multi-stakeholder sales cycles from initial discovery through contract signature.</li>
-        </ul>
+        <span class="exp-date">April 2025 – Present</span>
       </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Senior Security Account Executive</div>
-            <div class="exp-company"><!-- Update from LinkedIn --></div>
-          </div>
-          <span class="exp-date"><!-- Dates --></span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Achieved repeated 100% quota attainment across a portfolio of enterprise security accounts in the UK and EMEA.</li>
-          <li>Closed strategic deals with UK Government departments, Magic Circle legal firms, and top-tier recruitment organisations.</li>
-          <li>Developed channel partnerships and ISV relationships to extend market reach across EMEA.</li>
-          <li>Led competitive displacement campaigns, displacing incumbent vendors at major enterprise accounts.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Security Sales Professional</div>
-            <div class="exp-company"><!-- Update from LinkedIn --></div>
-          </div>
-          <span class="exp-date"><!-- Dates --></span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Managed end-to-end enterprise sales cycles for cybersecurity solutions across UK enterprise accounts.</li>
-          <li>Built relationships with CISO and security leadership at target accounts, establishing a trusted advisor position.</li>
-          <li>Coordinated pre-sales, technical, and executive resources to deliver compelling, customer-specific value propositions.</li>
-        </ul>
-      </div>
-
+      <p class="exp-desc">Helped ISV clients across Europe secure their Software, Data, and Platforms using the Microsoft Security Platform. Provided technical expertise in implementing tools like Defender, Sentinel, and Purview to enhance cyber security for EMEA clients. Collaborated with cross-functional teams (account teams, customer success etc.) to develop and implement innovative security solutions that ensure the safety of client data and systems.</p>
     </div>
 
-    <!-- CISO VIEW EXPERIENCE -->
-    <div data-view="ciso">
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Security GTM Leader & Trusted CISO Advisor</div>
-            <div class="exp-company">Blucreative / Independent</div>
-          </div>
-          <span class="exp-date">2024 – Present</span>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Senior Security Technical Specialist</div>
+          <div class="exp-company">Microsoft UK</div>
         </div>
-        <ul class="exp-bullets">
-          <li>Operating as a trusted strategic partner to CISOs and security leaders across EMEA, advising on vendor strategy, security programme roadmaps, and risk prioritisation.</li>
-          <li>Providing board-level security narratives to enable non-technical leadership to make informed risk decisions.</li>
-          <li>Advising on security architecture choices, procurement strategy, and vendor evaluation across cloud, identity, and endpoint domains.</li>
-          <li>Deeply embedded in UK Government, legal, and enterprise ISV security landscapes, providing sector-specific context and advisory.</li>
-        </ul>
+        <span class="exp-date">January 2018 – March 2025</span>
       </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Field Security Advisor / Pre-Sales CISO</div>
-            <div class="exp-company"><!-- Update from LinkedIn --></div>
-          </div>
-          <span class="exp-date"><!-- Dates --></span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Acted as a Field CISO equivalent, embedding within customer security teams to assess posture, define strategy, and guide roadmap priorities.</li>
-          <li>Facilitated risk workshops and threat modelling sessions with CISO and leadership teams at enterprise accounts.</li>
-          <li>Translated complex regulatory requirements (GDPR, NIS2, ISO 27001) into actionable programme plans aligned to business objectives.</li>
-          <li>Supported CISOs in UK Government and Magic Circle law firms on zero trust, cloud security, and identity modernisation initiatives.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Security Strategy Consultant</div>
-            <div class="exp-company"><!-- Update from LinkedIn --></div>
-          </div>
-          <span class="exp-date"><!-- Dates --></span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Delivered security strategy engagements for enterprise clients across financial services, legal, and recruitment sectors.</li>
-          <li>Advised on security frameworks and controls including ISO 27001, Cyber Essentials Plus, and NIST CSF.</li>
-          <li>Supported executive teams in communicating security posture and investment priorities to boards and regulators.</li>
-        </ul>
-      </div>
-
+      <p class="exp-desc">Provided Technical Pre-Sales support and expertise to customers across Public Sector, Professional Services, Media, Telco, Manufacturing and Energy industries. Notable customers include MoD, Home Office, DWP, UK Policing, Vodafone, WPP, UK Legal and Informa.</p>
+      <ul class="exp-bullets">
+        <li>Technical Community Lead for Security in the UK.</li>
+        <li>Dads@Microsoft UK Lead.</li>
+        <li>Manager and mentor to four apprentices; providing technical and career development coaching.</li>
+        <li>Collaborated with account teams to develop and execute technical win strategies for Tier 1 customers, contributing to multimillion-pound security solution sales.</li>
+        <li>Partnered with UK-based MSSPs to integrate Microsoft Sentinel and Defender XDR solutions into managed service offerings, increasing product adoption and enabling recurring revenue.</li>
+        <li>Functioned as a central bridge between technical delivery, field sales, and customer success teams to align on security roadmaps and ensure ongoing value.</li>
+        <li>Supported pipeline development and account planning sessions using MEDDPIC-aligned frameworks.</li>
+      </ul>
     </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Solutions Engineer</div>
+          <div class="exp-company">Nexor Ltd</div>
+        </div>
+        <span class="exp-date">June 2016 – December 2017</span>
+      </div>
+      <p class="exp-desc">Provided Technical Presales support and expertise through the sales process. Worked closely with sales, services, development and technical support to ensure technical solutions met customer requirements and were endorsed by key decision makers.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Technical Consultant</div>
+          <div class="exp-company">Deep Secure Ltd</div>
+        </div>
+        <span class="exp-date">May 2013 – June 2016</span>
+      </div>
+      <p class="exp-desc">Delivered support and post-sales services to new and existing customers. Managed customer support queries and performed on-site installations and product upgrades. Contributed to testing of new products and releases.</p>
+    </div>
+
   </section>
 
-  <!-- ── Sectors ─────────────────────────────────────────────────── -->
+  <!-- ── Education ──────────────────────────────────────────────── -->
   <section>
-    <div class="section-label">Key Sectors & Customers</div>
-    <div class="sectors-row" data-view="both">
-      <span class="sector-badge"><span class="dot"></span>UK Government &amp; Public Sector</span>
-      <span class="sector-badge"><span class="dot"></span>Magic Circle Legal Firms</span>
-      <span class="sector-badge"><span class="dot"></span>UK Enterprise Recruitment</span>
-      <span class="sector-badge"><span class="dot"></span>EMEA ISV &amp; Technology Partners</span>
-      <span class="sector-badge"><span class="dot"></span>Financial Services</span>
-      <span class="sector-badge"><span class="dot"></span>Professional Services</span>
+    <div class="section-label">Education</div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">HNC Electronic and Electrical Engineering</div>
+        <div class="edu-institution">Lincoln College</div>
+      </div>
+      <span class="edu-date">Sep 2012 – May 2014</span>
     </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">MSc Forensic Computing</div>
+        <div class="edu-institution">De Montfort University</div>
+      </div>
+      <span class="edu-date">Sep 2010 – Sep 2011</span>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">BSc Forensic Science</div>
+        <div class="edu-institution">University of Lincoln</div>
+      </div>
+      <span class="edu-date">Sep 2007 – May 2010</span>
+    </div>
+
   </section>
 
-  <!-- ── Certifications ─────────────────────────────────────────── -->
+  <!-- ── Professional Development ────────────────────────────────── -->
   <section>
-    <div class="section-label">Certifications &amp; Education</div>
-    <div class="certs-grid" data-view="both">
-      <div class="cert-card">
-        <span class="cert-icon">🛡️</span>
-        <div>
-          <div class="cert-name">Cybersecurity Certifications</div>
-          <div class="cert-body">See LinkedIn profile for full details</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-icon">🎓</span>
-        <div>
-          <div class="cert-name">Education</div>
-          <div class="cert-body">See LinkedIn profile for full details</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-icon">🏆</span>
-        <div>
-          <div class="cert-name">Vendor Accreditations</div>
-          <div class="cert-body">Security vendor sales &amp; technical accreditations (update from LinkedIn)</div>
-        </div>
-      </div>
+    <div class="section-label">Professional Development</div>
+    <ul class="devt-list">
+      <li><span class="devt-year">2024</span> Microsoft Gold Club Choice Award Winner</li>
+      <li><span class="devt-year">2024</span> SC-300 Identity and Access Administrator, Microsoft</li>
+      <li><span class="devt-year">2024</span> Copilot for Security Champion, Technical Skills Achievement, Microsoft</li>
+      <li><span class="devt-year">2023</span> Member of the British Computer Society (MBCS)</li>
+      <li><span class="devt-year">2023</span> Career Essentials in Generative AI, Microsoft and LinkedIn</li>
+      <li><span class="devt-year">2023</span> Liveryman, WCIT</li>
+      <li><span class="devt-year">2022</span> High Performance Mindset, The Mindset Experience</li>
+      <li><span class="devt-year">2022</span> SC-200 Security Operations Analyst Associate, Microsoft</li>
+      <li><span class="devt-year">2021</span> Technical Leadership Development Program, Microsoft</li>
+      <li><span class="devt-year">2021</span> SC-900 Security, Compliance and Identity Fundamentals, Microsoft</li>
+      <li><span class="devt-year">2020</span> The Coaching Habit, Microsoft</li>
+      <li><span class="devt-year">2020</span> Certified Ethical Hacker, EC Council</li>
+      <li><span class="devt-year">2020</span> Freeman of the City of London, WCIT</li>
+      <li><span class="devt-year">2019</span> Challenger Foundations, Microsoft</li>
+      <li><span class="devt-year">2019</span> MS-500 Microsoft Security Administrator Associate, Microsoft</li>
+    </ul>
+  </section>
+
+  <!-- ── Skills ──────────────────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-tag highlight">Microsoft Security</span>
+      <span class="skill-tag highlight">Technical Presales</span>
+      <span class="skill-tag highlight">SIEM/SOAR</span>
+      <span class="skill-tag highlight">XDR/MDR</span>
+      <span class="skill-tag highlight">MSSP Enablement</span>
+      <span class="skill-tag">Multi/Hybrid Cloud Security</span>
+      <span class="skill-tag">Solution Architecture</span>
+      <span class="skill-tag">Ethical Hacking</span>
+      <span class="skill-tag">Digital Forensics</span>
+      <span class="skill-tag">Live Forensics</span>
+      <span class="skill-tag">Networking</span>
+      <span class="skill-tag">Digital Security</span>
+      <span class="skill-tag">External Speaking</span>
+      <span class="skill-tag">Excellent Communication</span>
+      <span class="skill-tag">Mentoring</span>
+      <span class="skill-tag">Coaching</span>
+      <span class="skill-tag">Multi OS</span>
+      <span class="skill-tag">Electronic Engineering</span>
     </div>
   </section>
 
   <!-- ── Footer ─────────────────────────────────────────────────── -->
   <footer class="cv-footer">
-    <p>Matthew Isbell · <a href="mailto:matthewisbell@blucreative.co.uk">matthewisbell@blucreative.co.uk</a> · <a href="https://linkedin.com/in/matthewisbell" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p>Matthew Isbell MSc · <a href="mailto:matthewisbell@blucreative.co.uk">matthewisbell@blucreative.co.uk</a> · <a href="https://uk.linkedin.com/in/matthewisbell" target="_blank" rel="noopener">LinkedIn</a> · References available upon request</p>
   </footer>
 
 </div><!-- /page-wrap -->
-
-<script>
-  const TAGLINES = {
-    sales: 'Security Sales Lead &amp; GTM Specialist · EMEA',
-    ciso:  'Field CISO &amp; Trusted Security Advisor · EMEA',
-  };
-
-  function setView(view) {
-    document.body.classList.remove('view-sales', 'view-ciso');
-    document.body.classList.add('view-' + view);
-
-    document.getElementById('btn-sales').classList.toggle('active', view === 'sales');
-    document.getElementById('btn-ciso').classList.toggle('active', view === 'ciso');
-
-    const tagline = document.getElementById('tagline');
-    tagline.style.opacity = '0';
-    setTimeout(() => {
-      tagline.innerHTML = TAGLINES[view];
-      tagline.style.opacity = '1';
-    }, 180);
-  }
-
-  // Persist toggle state across page reloads
-  const saved = sessionStorage.getItem('cv-view');
-  if (saved) setView(saved);
-
-  ['btn-sales', 'btn-ciso'].forEach(id => {
-    document.getElementById(id).addEventListener('click', function () {
-      const view = id === 'btn-sales' ? 'sales' : 'ciso';
-      sessionStorage.setItem('cv-view', view);
-    });
-  });
-</script>
 
 </body>
 </html>
